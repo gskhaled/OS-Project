@@ -6,14 +6,15 @@ public class PayRoll extends Process {
 		super(p);
 	}
 
+	@Override
 	void run() {
 		try {
 
-			System.out.print("Pay roll is being calculated.....");
-			//added a slight delay according to the TTF of each process
+			SystemCall.read("Pay roll is being calculated.....");
+			// added a slight delay according to the TTF of each process
 			TimeUnit.SECONDS.sleep(this.pcb.ttf);
-			//print DONE after
-			System.out.println(" Done!");
+			// print DONE after
+			SystemCall.read(" Done!");
 
 		} catch (InterruptedException e) {
 			e.printStackTrace();

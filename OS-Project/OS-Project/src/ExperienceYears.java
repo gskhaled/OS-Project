@@ -6,7 +6,6 @@ public class ExperienceYears extends Process {
 		super(p);
 	}
 
-	@Override
 	void run() {
 		try {
 
@@ -14,7 +13,7 @@ public class ExperienceYears extends Process {
 			// added a slight delay according to the TTF of each process
 			TimeUnit.SECONDS.sleep(this.pcb.ttf);
 			// print DONE after
-			SystemCall.read(" Done!");
+			System.out.println(" Done!");
 
 		} catch (InterruptedException e) {
 			e.printStackTrace();
