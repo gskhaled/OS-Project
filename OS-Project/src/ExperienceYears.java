@@ -9,10 +9,10 @@ public class ExperienceYears extends Process {
 	void run() {
 		try {
 
-			System.out.print("Experience Years is being calculated....");
-			//added a slight delay according to the TTF of each process
+			SystemCall.read("Experience Years is being calculated....");
+			// added a slight delay according to the TTF of each process
 			TimeUnit.SECONDS.sleep(this.pcb.ttf);
-			//print DONE after
+			// print DONE after
 			System.out.println(" Done!");
 
 		} catch (InterruptedException e) {
