@@ -8,24 +8,14 @@ public class Scheduler {
 	int days = 1;
 	ArrayList<Process> processesArray = new ArrayList<Process>();
 	Queue<Process> readyQueue = new LinkedList<>();
-	// static Queue<Process> blockedQueue = new LinkedList<>();
 
 	void Ready(Process p) {
-		// if(blockedQueue.isEmpty())
 		readyQueue.add(p);
-		// else {
-		// readyQueue.add(blockedQueue.remove());
-		// }
-
 	}
 
 	void Running() {
 		readyQueue.remove().run();
 	}
-
-	// void enqueueBlocked(Process p) {
-	// blockedQueue.add(p);
-	// }
 
 	public static void main(String[] args) {
 		Scheduler s = new Scheduler();
