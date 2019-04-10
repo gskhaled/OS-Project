@@ -6,6 +6,7 @@ public class GPACategory extends Process {
 		super(p);
 	}
 
+	@Override
 	void run() {
 		try {
 
@@ -13,7 +14,7 @@ public class GPACategory extends Process {
 			// added a slight delay according to the TTF of each process
 			TimeUnit.SECONDS.sleep(this.pcb.ttf);
 			// print DONE after
-			System.out.println(" Done!");
+			SystemCall.read(" Done!");
 
 		} catch (InterruptedException e) {
 			e.printStackTrace();
