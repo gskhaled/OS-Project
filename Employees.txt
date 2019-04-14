@@ -1,5 +1,0 @@
-Person 1, Doctor, 01/01/2000, 10000, EXP YEARS
-Person 2, TA, 02/01/2001, 1500, EXP YEARS
-Person 3, TA, 03/01/2002, 5000, EXP YEARS
-Person 4, Doctor, 04/01/2003, 200, EXP YEARS
-Person 5, Accountant, 05/01/2004, 1800, EXP YEARS
