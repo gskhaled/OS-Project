@@ -1,4 +1,0 @@
-Student 1, CS, 6, 1.0, 80000, GPA CATEGORY
-Student 2, DMET, 5, 1.9, 90000, GPA CATEGORY
-Student 3, EMS, 4, 2.0, 10000, GPA CATEGORY
-Student 4, Production, 8, 3.0, 150000, GPA CATEGORY
