@@ -1,5 +1,5 @@
-Person 1, Doctor, 01/01/2000, 10000, 19
-Person 2, TA, 02/01/2001, 1500, 18
-Person 3, TA, 03/01/2002, 5000, 17
-Person 4, Doctor, 04/01/2003, 200, 16
-Person 5, Accountant, 05/01/2004, 1800, 15
+Person 1, Doctor, 01/01/2000, 10000, 0
+Person 2, TA, 02/01/2001, 1500, 0
+Person 3, TA, 03/01/2002, 5000, 0
+Person 4, Doctor, 04/01/2003, 200, 0
+Person 5, Accountant, 05/01/2004, 1800, 0
