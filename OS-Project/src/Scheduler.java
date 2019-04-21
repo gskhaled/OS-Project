@@ -7,9 +7,9 @@ import java.util.concurrent.TimeUnit;
 public class Scheduler {
 
 	public int days = 0;
-	ArrayList<Process> processesArray = new ArrayList<Process>(); // array of processes
+	ArrayList<Process> processesArray = new ArrayList<Process>(); // the array of processes
 	static Queue<Process> readyQueue = new LinkedList<>(); // the ready queue
-	static Process processRunning; // the currently running process
+	static Process runningProcess; // the currently running process
 
 	public Scheduler() {
 
@@ -32,10 +32,10 @@ public class Scheduler {
 		// TTF
 		// process parameters: process_id, user_id, timeToFinish, period (every how long
 		// in days), memory requirement
-		s.processesArray.add(new PayRoll(new PCB(1, 1, 5, 10, 10)));
-		s.processesArray.add(new ExperienceYears(new PCB(2, 1, 10, 10, 20)));
-		s.processesArray.add(new TuitionFeesIncrease(new PCB(3, 1, 15, 30, 30)));
-		s.processesArray.add(new GPACategory(new PCB(4, 1, 20, 60, 40)));
+		s.processesArray.add(new PayRoll(new PCB(1, 1, 5, 100, 100)));
+		s.processesArray.add(new ExperienceYears(new PCB(2, 1, 3, 10, 30)));
+		s.processesArray.add(new TuitionFeesIncrease(new PCB(3, 1, 4, 50, 40)));
+		s.processesArray.add(new GPACategory(new PCB(4, 1, 2, 20, 20)));
 		while (true) {
 			try {
 				if (s.days % 365 != 0)
@@ -58,10 +58,10 @@ public class Scheduler {
 							// put it in the ready queue
 							s.Ready(p);
 							// set the variable to the process that's next in like to be ran
-							processRunning = readyQueue.peek();
+							runningProcess = readyQueue.peek();
 							// change the process name on the label in GUI to be the current running process
 							// name
-							GUI.setProcess(processRunning);
+							GUI.setProcess(runningProcess);
 							gui.update(s, true);
 							// run the process
 							s.Running();
@@ -70,13 +70,13 @@ public class Scheduler {
 						} else
 							IOModule.print(" No space in memory for this process ");
 						if (!worked)
-							log.write("Process " + p.getClass().toString().substring(5) + " worked for "
-									+ processRunning.pcb.ttf + " minutes and used: " + processRunning.pcb.memorySize
-									+ " blocks of memory");
+							log.write(" Process " + p.getClass().toString().substring(5) + " worked for "
+									+ runningProcess.pcb.ttf + " minutes and used: " + runningProcess.pcb.memorySize
+									+ " blocks of memory ");
 						else
 							log.write(" Process " + p.getClass().toString().substring(5)
-									+ " was blocked, then worked for " + processRunning.pcb.ttf + " minutes and used: "
-									+ processRunning.pcb.memorySize + " blocks of memory");
+									+ " was blocked, then worked for " + runningProcess.pcb.ttf + " minutes and used: "
+									+ runningProcess.pcb.memorySize + " blocks of memory ");
 						worked = true; // flip the flag as a process did indeed work
 					}
 				}
@@ -88,7 +88,7 @@ public class Scheduler {
 					io.writeLine("Day " + s.days + ", " + 0);
 
 				gui.update(s, false);
-				TimeUnit.SECONDS.sleep(1); // wait for a second to change the day
+				TimeUnit.MILLISECONDS.sleep(250); // wait for a second to change the day
 			} catch (InterruptedException | IOException e) {
 				e.printStackTrace();
 			}

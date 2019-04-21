@@ -44,10 +44,6 @@ public class GUI extends JFrame {
 		process.setText(text);
 	}
 
-	public void updateMemory(int memoryUsed) {
-
-	}
-
 	public void update(Scheduler s, boolean on) {
 		days.setText(s.days + "");
 
@@ -70,13 +66,13 @@ public class GUI extends JFrame {
 			return;
 		}
 
-		if (s.processRunning != null) {
-			String text = s.processRunning.getClass().toString().substring(5);
+		if (s.runningProcess != null) {
+			String text = s.runningProcess.getClass().toString().substring(5);
 			process.setText(text);
 
 			JPanel n = new JPanel();
 			n.setLayout(new GridLayout(1, 10));
-			int memoryUsed = s.processRunning.pcb.memorySize;
+			int memoryUsed = s.runningProcess.pcb.memorySize;
 			int i = 0;
 			for (; i < 10; i++) {
 				JButton b = new JButton();
